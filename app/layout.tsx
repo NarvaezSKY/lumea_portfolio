@@ -10,6 +10,10 @@ const bodoni = Bodoni_Moda({ subsets: ['latin'], variable: '--font-bodoni' })
 export const metadata: Metadata = {
   title: 'Lumea — Manicure de autor',
   description: 'Semipermanente, Rubber, Soft Gel y Acrílico en Bogotá. Reserva tu cita con Lumea por WhatsApp.',
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
 }
 
 export const viewport: Viewport = {
