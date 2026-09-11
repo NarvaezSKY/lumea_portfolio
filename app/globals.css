@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --font-sans: 'Geist', 'Arial', sans-serif;
+  --font-serif: 'Bodoni Moda', 'Times New Roman', serif;
+  --font-mono: 'Geist Mono', monospace;
+}
+
+:root {
+  color-scheme: dark;
+  --background: #071a40;
+  --foreground: #f7e8df;
+  --card: #0b2453;
+  --card-foreground: #f7e8df;
+  --primary: #e7a18f;
+  --primary-foreground: #071a40;
+  --secondary: #2d173e;
+  --secondary-foreground: #f7e8df;
+  --muted: #102b5b;
+  --muted-foreground: #a8afc1;
+  --border: rgba(249, 234, 250, .16);
+  --radius: 0rem;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--background); }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: 'Geist', Arial, sans-serif; }
+::selection { background: var(--primary); color: var(--primary-foreground); }
+
+.nav-link { color: color-mix(in srgb, var(--foreground) 72%, transparent); font-size: .72rem; font-weight: 600; letter-spacing: .16em; transition: color .2s; }
+.nav-link:hover { color: var(--primary); }
+.eyebrow { color: var(--primary); font-family: 'Geist Mono', monospace; font-size: .68rem; letter-spacing: .18em; font-weight: 600; }
+.field-label { display: grid; gap: .45rem; color: color-mix(in srgb, var(--foreground) 72%, var(--primary)); font-family: 'Geist Mono', monospace; font-size: .65rem; letter-spacing: .15em; }
+.booking-input { width: 100%; border: 1px solid color-mix(in srgb, var(--primary) 35%, var(--border)); background: var(--muted); padding: .8rem .85rem; color: var(--foreground); font-family: 'Geist', Arial, sans-serif; font-size: .85rem; outline: none; }
+.booking-input option { background: var(--muted); color: var(--foreground); }
+.booking-input:focus { border-color: var(--primary); }
+
+button, a, select, [role='button'] { cursor: pointer; }
+button:disabled, select:disabled { cursor: not-allowed; }
+a[aria-disabled='true'] { pointer-events: none; cursor: not-allowed; }
+
+@keyframes modal-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-zoom-in { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: scale(1); } }
+@keyframes modal-sheet-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.modal-backdrop { animation: modal-fade-in .24s ease-out both; }
+.modal-image-content { animation: modal-zoom-in .3s cubic-bezier(.22, 1, .36, 1) both; }
+.modal-sheet { animation: modal-sheet-in .32s cubic-bezier(.22, 1, .36, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .modal-backdrop, .modal-image-content, .modal-sheet { animation: none; }
+}
